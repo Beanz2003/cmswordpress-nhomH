@@ -1,3 +1,15 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/motion-tailwind/motion-tailwind.css" rel="stylesheet">
+        <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
+        <script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
+        <script src="https://cdn.tailwindcss.com"></script>
+        
+           <link
+              rel="stylesheet"
+              href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+              integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+              crossorigin="anonymous"
+/>
+
 <?php
 /**
  * JobScout Template Functions which enhance the theme by hooking into WordPress
@@ -499,31 +511,87 @@ if( ! function_exists( 'jobscout_footer_top' ) ) :
 /**
  * Footer Top
 */
-function jobscout_footer_top(){    
+function jobscout_footer_top(){
     $footer_sidebars = array( 'footer-one', 'footer-two', 'footer-three', 'footer-four' );
     $active_sidebars = array();
     $sidebar_count   = 0;
-    
+
     foreach ( $footer_sidebars as $sidebar ) {
         if( is_active_sidebar( $sidebar ) ){
             array_push( $active_sidebars, $sidebar );
             $sidebar_count++ ;
         }
     }
-                 
     if( $active_sidebars ){ ?>
-        <div class="footer-t">
-    		<div class="container">
-    			<div class="grid column-<?php echo esc_attr( $sidebar_count ); ?>">
-                <?php foreach( $active_sidebars as $active ){ ?>
-    				<div class="col">
-    				   <?php dynamic_sidebar( $active ); ?>	
-    				</div>
-                <?php } ?>
-                </div>
-    		</div>
-    	</div>
-        <?php 
+        <div class="flex flex-col mx-3 bg-white rounded-lg">
+  <div class="w-full draggable">
+    <div class="container flex flex-col mx-auto">
+      <div class="flex flex-col items-center w-full my-20 ">
+      <span class="mb-8 tittle-home">
+        <?php
+            // Hiển thị tiêu đề với liên kết đến trang chủ
+            echo '<h3><a href="' . esc_url( home_url() ) . '">' . esc_html( get_bloginfo( 'name' ) ) . '</a></h3>'; 
+        ?>
+         
+      </span>
+        <div class="flex flex-col items-center gap-6 mb-8 title-page">
+        <div class="flex flex-wrap items-center justify-center gap-5 lg:gap-12 gap-y-3 lg:flex-nowrap text-dark-grey-900 gaps">
+            <?php
+             $menu_items = wp_get_nav_menu_items('primary'); // Lấy các mục menu từ primary menu
+             $count = 0; // Biến đếm số lượng trang đã lấy
+             
+             if ($menu_items) {
+                 foreach ($menu_items as $menu_item) {
+                     if ($count >= 5) {
+                         break; // Dừng vòng lặp sau khi đã lấy đủ 5 trang
+                     }
+                     
+                     if ($menu_item->object_id == get_option('page_on_front')) {
+                         continue; // Bỏ qua trang chủ
+                     }
+                     
+                     echo '<a href="' . $menu_item->url . '">' . $menu_item->title . '</a><br>';
+                     $count++;
+                 }
+             }
+               
+                
+             else {
+                // Hiển thị thông báo nếu không có trang nào được tìm thấy
+             echo 'Không có trang nào.';
+            }
+             ?>
+         </div>
+             <div class="flex items-center gap-8">
+            <a href="https://www.facebook.com/" target="_blank" class="text-grey-700 hover:text-grey-900">
+                 <button id="facebook" class="sticky duration-500 border-2 border-blue-600 fixed w-12 transform h-12 text-2xl rounded-full bg-blue-600 text-white text-blue-600 gap1">
+                        <i class="fab fa-facebook-f"></i>
+                </button>
+                </a>
+            <a href="https://plus.google.com/" target="_blank" class="text-grey-700 hover:text-grey-900">
+                <button id="googleplus" class="transform border-2 w-12 h-12 rounded-full duration-500 text-red-500 border-red-500 bg-red-500 text-white text-2xl">
+<i class="fab fa-google-plus-g"></i>
+                </button>
+            </a>
+            <a href="https://line.me/" target="_blank" class="text-grey-700 hover:text-grey-900">
+                <button id="line" class="transform border-2 w-12 h-12 rounded-full duration-500 text-green-400 border-green-400 bg-green-400 text-white text-2xl">
+                        <i class="fab fa-line"></i>
+                </button>
+            </a>
+            <a href="https://twitter.com/" target="_blank" class="text-grey-700 hover:text-grey-900">
+                <button id="twitter" class="transform border-2 w-12 h-12 rounded-full duration-500 text-blue-400 border-blue-400 bg-blue-400 text-white text-2xl">
+                        <i class="fab fa-twitter"></i>
+                </button>
+            </a>
+          
+          
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <?php
     }
 }
 endif;
