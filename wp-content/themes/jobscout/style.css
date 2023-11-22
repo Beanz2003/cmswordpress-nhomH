@@ -8177,64 +8177,64 @@ a.btn {
 }
 .site-branding .site-description {
   color:black !important;
-  font-weight: bold;
+  font-weight: bold !important;
 }
 .main-navigation ul li.current-menu-item>a, .main-navigation ul li.current_page_item>a, .main-navigation ul li.current-menu-ancestor>a, .main-navigation ul li.current_page_ancestor>a{
   color: black !important;
-  border-bottom: 4px solid orange; 
-  padding-bottom: 6px;
-  padding-top: 10px; /* Khoảng cách giữa viền và chữ là 5px */
+  border-bottom: 4px solid orange !important; 
+  padding-bottom: 6px !important;
+  padding-top: 10px !important; /* Khoảng cách giữa viền và chữ là 5px */
 }
 /**/
 /* footer */
 .tittle-home{
-  font-weight: bold;
-  font-size: 30px;
-  font-family: monospace;
+  font-weight: bold !important;
+  font-size: 30px !important;
+  font-family: monospace !important;
 }
 .tittle-page{
-  text-transform: uppercase; 
-  font-weight: bold;
+  text-transform: uppercase !important; 
+  font-weight: bold !important;
 }
 .gaps {
   gap: 1.75rem  !important; 
-  margin-top: -10px;
-  margin-bottom: 9px;
+  margin-top: -10px !important;
+  margin-bottom: 9px !important;
 }
 /**/
 .newsletters{
   width: auto !important;
-  margin-right: -155px;
-  margin-left: -154px;
+  margin-right: -155px !important;
+  margin-left: -154px !important;
 }
 .emailAndIcon{
-  position: relative;
+  position: relative !important;
 }
 .fa-envelope{
-  position: absolute;
-  top: 18px;
-  left: 14px;
+  position: absolute !important;
+  top: 18px !important;
+  left: 14px !important;
 }
 .emailAndIcon .wpcf7-validates-as-email{
-  padding-left: 42px;
+  padding-left: 42px !important;
 }
 .newsletterTile p{
-  font-size: 22px;
-  padding-left: 65px;
-  font-family: initial;
+  font-size: 22px !important;
+  padding-left: 65px !important;
+  font-family: initial !important;
 }
 .brnewsletter{
   padding-bottom: unset !important;
   padding-top: unset !important;
 }
 .inputEmail .has-spinner{
-  background: unset;
-  border: 1px solid #fff;
-  border-radius:unset;
-  margin-right: 93px;
+  background: unset !important;
+  border: 1px solid #fff !important;
+  border-radius:unset !important;
+  margin-right: 93px !important;
 }
 .newsletters .newsletters1{
-  text-align: center;
+  text-align: center !important;
 }
 .mrNewsletter{
 margin: unset !important;
