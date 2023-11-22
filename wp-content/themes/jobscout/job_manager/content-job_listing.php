@@ -65,6 +65,15 @@ $company_name = get_post_meta(get_the_ID(), '_company_name', true);
 
             
 			</div>
-            
-   
+            <div class="job-content noidung">
+                <?php
+                // Display the first three paragraphs of the job description
+                $content = get_the_content();
+                $paragraphs = preg_split('/\n\s*\n/', $content, 4, PREG_SPLIT_NO_EMPTY); // Split content into paragraphs
+                for ($i = 0; $i < min(3, count($paragraphs)); $i++) {
+                    $trimmed_paragraph = wp_trim_words(strip_tags($paragraphs[$i]), 10); // Trim each paragraph
+                    echo '<p>' . wpautop($trimmed_paragraph) . '</p>';
+                }
+                ?>
+            </div>
 </article>
